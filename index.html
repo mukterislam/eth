@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ethscan</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header, main, footer {
+            padding: 20px;
+            margin: 10px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+        }
+        main {
+            background-color: #ffffff;
+        }
+        footer {
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        .input-container {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="radio"] {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: calc(100% - 22px);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .span-container {
+            margin-top: 20px;
+        }
+        .span-container span {
+            display: inline-block;
+            padding: 10px;
+            margin: 5px;
+            background-color: #e2e2e2;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+	<div id="app" class="h-100" data-api-url="https://ethscan.app/api" data-base-url="https://ethscan.app/">
+    <header>
+        <h1>Ethscan</h1>
+    </header>
+    <main>
+        <div class="input-container">
+                <label for="userInput">Enter something:</label>
+                <input type="text" id="start-private" placeholder="Private key" required>
+                
+                <input id="Unlimited" name="limitScan" type="radio" value="1" checked class="form-check-input" hidden>
+              <strong id="lng11" hidden>What to do?</strong>
+ 
+        <input id="onlyScansEther" name="typeCheck" type="radio" class="custom-control-input" value="0" checked hidden>
+        <label class="custom-control-label" for="onlyScansEther" id="lng12" hidden>Only scan Ether balance</label>
+        <small class="text-muted" hidden> ~ 20 Address/ 1s</small>
+<br>
+               <span id="buttonOption"> <button type="button" id="btn-start-scan" > <span id="lng22">START</span>
+        </div>
+        
+            <div style="display: none; margin-left: 30px;" id="div-times">
+        <div>
+            <label for="cc-name"><i id="lng18">Times:</i></label>
+            <input type="text" id="limit-scan" value="100" placeholder="Private key" style="width: 100%;" required disabled >
+        </div>
+    </div>
+        <div class="span-container">
+        <span id="lng19">Scan</span> / <span id="totalAddress">0</span> <span id="lng20">Address</span> / <span id="lng21">Delay</span> <span id="delay">0</span>s
+        </div>
+  <table >
+    <thead >
+        <tr>
+            <th>#</th>
+            <th hidden>Private Key</th>
+            <th>Address</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td id="private0" hidden></td>
+            <td id="address0"></td>
+            <td id="balance0"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td id="private1" hidden></td>
+            <td id="address1"></td>
+            <td id="balance1"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td id="private2" hidden></td>
+            <td id="address2"></td>
+            <td id="balance2"></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td id="private3" hidden></td>
+            <td id="address3"></td>
+            <td id="balance3"></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td id="private4" hidden></td>
+            <td id="address4"></td>
+            <td id="balance4"></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td id="private5" hidden></td>
+            <td id="address5"></td>
+            <td id="balance5"></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td id="private6" hidden></td>
+            <td id="address6"></td>
+            <td id="balance6"></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td id="private7" hidden></td>
+            <td id="address7"></td>
+            <td id="balance7"></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td id="private8" hidden></td>
+            <td id="address8"></td>
+            <td id="balance8"></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td id="private9" hidden></td>
+            <td id="address9"></td>
+            <td id="balance9"></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td id="private10" hidden></td>
+            <td id="address10"></td>
+            <td id="balance10"></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td id="private11" hidden></td>
+            <td id="address11"></td>
+            <td id="balance11"></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td id="private12" hidden></td>
+            <td id="address12"></td>
+            <td id="balance12"></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td id="private13" hidden></td>
+            <td id="address13"></td>
+            <td id="balance13"></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td id="private14" hidden></td>
+            <td id="address14"></td>
+            <td id="balance14"></td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td id="private15" hidden></td>
+            <td id="address15"></td>
+            <td id="balance15"></td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td id="private16" hidden></td>
+            <td id="address16"></td>
+            <td id="balance16"></td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td id="private17" hidden></td>
+            <td id="address17"></td>
+            <td id="balance17"></td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td id="private18" hidden></td>
+            <td id="address18"></td>
+            <td id="balance18"></td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td id="private19" hidden></td>
+            <td id="address19"></td>
+            <td id="balance19"></td>
+        </tr>
+    </tbody>
+</table>
+    </main>
+    <footer>
+        <h4 id="lng24">Result</h4>
+        <div id="havaBalance"><span id="lng25">Not yet !</span></div>
+    </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bignumber.js@9.0.1/bignumber.min.js"></script>
+<script type="text/javascript" src="./assets/js/ethers.js"></script>
+<script type="text/javascript" src="./assets/js/ethscan.js?v=1.8.0"></script>
+   </div>
+</body>
+</html>
